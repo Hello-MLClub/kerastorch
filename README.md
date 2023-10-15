@@ -1,4 +1,4 @@
-## 简洁
+## kerastorch 简介
 
 
 kerastorch 是一个通用的pytorch模型训练模版工具，按照如下目标进行设计和实现：
@@ -11,11 +11,7 @@ kerastorch 是一个通用的pytorch模型训练模版工具，按照如下目�
 
 
 
-```python
-
-```
-
-## 1，炼丹之痛 😭😭
+## kerastorch 构建初衷 😭😭
 
 
 无论是学术研究还是工业落地，pytorch几乎都是目前炼丹的首选框架。
@@ -28,7 +24,7 @@ torchvision官方提供的范例代码主要是一个关联了非常多依赖函
 
 yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不同的yolo版本都会改动很多导致不同yolo版本之间都难以通用。
 
-抱抱脸的transformers库在借鉴了pytorch_lightning的基础上也搞了一个自己的Trainer，但与pytorch_lightning并不兼容。
+huggingface的transformers库在借鉴了pytorch_lightning的基础上也搞了一个自己的Trainer，但与pytorch_lightning并不兼容。
 
 非常有名的facebook的目标检测库detectron2, 也是搞了一个它自己的Trainer，配合一个全局的cfg参数设置对象来训练模型。
 
@@ -38,48 +34,10 @@ yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不
 
 有些设计非常糟糕，嵌套了十几层，有些实现非常dirty，各种带下划线的私有变量满天飞。
 
-让你每次想要改动一下加入一些自己想要的功能时就感到望而却步。
-
-我不就想finetune一下模型嘛，何必拿这么多垃圾代码搞我？
+kerastorch 希望大家像学习keras 一样使用pytorch!
 
 
-```python
-
-```
-
-## 2，梦中情炉 🤗🤗
-
-这一切的苦不由得让我怀念起tensorflow中keras的美好了。
-
-还记得keras那compile, fit, evalute三连击吗？一切都像行云流水般自然，真正的for humans。
-
-而且你看任何用keras实现的模型库，训练和验证都几乎可以用这一套相同的接口，没有那么多莫名奇妙的野生Trainer。
-
-我能否基于pytorch打造一个接口和keras一样简洁易用，功能强大，但是实现代码非常简短易懂，便于修改的模型训练工具呢？
-
-从2020年7月左右发布1.0版本到最近发布的3.86版本，我陆陆续续在工作中一边使用一边打磨一个工具，总共提交修改了70多次。
-
-现在我感觉我细心雕琢的这个作品终于长成了我心目中接近完美的样子。
-
-
-**她有一个美丽的名字：kerastorch.**
- 
-**是的，她兼具torch的灵动，也有keras的优雅~**
-
-**并且她的美丽，无与伦比~**
-
-**她，就是我的梦中情炉~ 🤗🤗**
-
-
-![](./data/kerastorch.png)
-
-
-```python
-
-```
-
-
-## 3，使用方法 🍊🍊
+## 使用方法 🍊🍊
 
 
 安装kerastorch
@@ -125,12 +83,10 @@ dfhistory=model.fit(train_data=dl_train,
 
 
 
-## 4，主要特性 🍉🍉
+## 主要特性 🍉🍉
 
 
 kerastorch 支持以下这些功能特性，稳定支持这些功能的起始版本以及这些功能借鉴或者依赖的库的来源见下表。
-
-
 
 
 |功能| 稳定支持起始版本 | 依赖或借鉴库 |
@@ -145,31 +101,8 @@ kerastorch 支持以下这些功能特性，稳定支持这些功能的起始版
 |✅ tensorboard callback |   3.7.0  |依赖tensorboard |
 |✅ wandb callback |  3.7.0 |依赖wandb |
 
-```python
 
-```
-
-## 5，基本范例 🌰🌰
-
-
-以下范例是kerastorch的基础范例，演示了kerastorch的主要功能。
-
-包括基础训练，使用wandb可视化，使用wandb调参，使用tensorboard可视化，使用多GPU的ddp模式训练等。
-
-
-|example| notebook    |  kaggle链接| 
-|:----|:-------------------------|:-----------:|
-|①基础范例 🔥🔥|  [**basic example**](./01，kerasmodel_example.ipynb)  |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerasmodel-example"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
-|②wandb可视化 🔥🔥🔥|[**wandb demo**](./02，kerasmodel_wandb_demo.ipynb)   |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerasmodel-wandb-example"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
-|③wandb自动化调参🔥🔥|[**wandb sweep demo**](./03，kerasmodel_tuning_demo.ipynb)   |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerastorch-loves-wandb-sweep"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
-|④tensorboard可视化| [**tensorboard example**](./04，kerasmodel_tensorboard_demo.ipynb)   |  |
-|⑤ddp/tpu训练范例| [**ddp tpu examples**](https://www.kaggle.com/code/lyhue1991/kerastorch-ddp-tpu-examples)   |<br><div></a><a href="https://www.kaggle.com/lyhue1991/kerastorch-ddp-tpu-examples"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
-
-```python
-
-```
-
-## 6，进阶范例 🔥🔥 
+## 范例 🔥🔥 
 
 在炼丹实践中，遇到的数据集结构或者训练推理逻辑往往会千差万别。
 
