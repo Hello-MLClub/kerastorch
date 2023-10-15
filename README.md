@@ -1,7 +1,7 @@
-[English](README_en.md) | 简体中文
+## 简洁
 
 
-torchkeras 是一个通用的pytorch模型训练模版工具，按照如下目标进行设计和实现：
+kerastorch 是一个通用的pytorch模型训练模版工具，按照如下目标进行设计和实现：
 
 * **好看** (代码优雅，日志美丽，自带可视化)
 
@@ -62,7 +62,7 @@ yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不
 现在我感觉我细心雕琢的这个作品终于长成了我心目中接近完美的样子。
 
 
-**她有一个美丽的名字：torchkeras.**
+**她有一个美丽的名字：kerastorch.**
  
 **是的，她兼具torch的灵动，也有keras的优雅~**
 
@@ -71,7 +71,7 @@ yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不
 **她，就是我的梦中情炉~ 🤗🤗**
 
 
-![](./data/torchkeras.png)
+![](./data/kerastorch.png)
 
 
 ```python
@@ -82,14 +82,14 @@ yolo系列的主要是支持ddp模式的各种风格迥异的Trainer，每个不
 ## 3，使用方法 🍊🍊
 
 
-安装torchkeras
+安装kerastorch
 ```
-pip install torchkeras
+pip install kerastorch
 ```
 
-通过使用torchkeras，你不需要写自己的pytorch模型训练循环。你只要做这样两步就可以了。
+通过使用kerastorch，你不需要写自己的pytorch模型训练循环。你只要做这样两步就可以了。
 
-(1) 创建你的模型结构net,然后把它和损失函数传入torchkeras.KerasModel构建一个model。
+(1) 创建你的模型结构net,然后把它和损失函数传入kerastorch.KerasModel构建一个model。
 
 (2) 使用model的fit方法在你的训练数据和验证数据上进行训练，训练数据和验证数据需要封装成两个DataLoader.
 
@@ -99,9 +99,9 @@ pip install torchkeras
 
 ```python
 import torch 
-import torchkeras
+import kerastorch
 import torchmetrics
-model = torchkeras.KerasModel(net,
+model = kerastorch.KerasModel(net,
                               loss_fn = nn.BCEWithLogitsLoss(),
                               optimizer= torch.optim.Adam(net.parameters(),lr = 1e-4),
                               metrics_dict = {"acc":torchmetrics.Accuracy(task='binary')}
@@ -120,7 +120,7 @@ dfhistory=model.fit(train_data=dl_train,
 
 在jupyter notebook中执行训练代码，你将看到类似下面的训练可视化图像和训练日志进度条。
 
-![](./data/torchkeras_plot.gif)
+![](./data/kerastorch_plot.gif)
 
 
 
@@ -128,7 +128,7 @@ dfhistory=model.fit(train_data=dl_train,
 ## 4，主要特性 🍉🍉
 
 
-torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版本以及这些功能借鉴或者依赖的库的来源见下表。
+kerastorch 支持以下这些功能特性，稳定支持这些功能的起始版本以及这些功能借鉴或者依赖的库的来源见下表。
 
 
 
@@ -152,7 +152,7 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 ## 5，基本范例 🌰🌰
 
 
-以下范例是torchkeras的基础范例，演示了torchkeras的主要功能。
+以下范例是kerastorch的基础范例，演示了kerastorch的主要功能。
 
 包括基础训练，使用wandb可视化，使用wandb调参，使用tensorboard可视化，使用多GPU的ddp模式训练等。
 
@@ -161,9 +161,9 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 |:----|:-------------------------|:-----------:|
 |①基础范例 🔥🔥|  [**basic example**](./01，kerasmodel_example.ipynb)  |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerasmodel-example"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
 |②wandb可视化 🔥🔥🔥|[**wandb demo**](./02，kerasmodel_wandb_demo.ipynb)   |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerasmodel-wandb-example"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
-|③wandb自动化调参🔥🔥|[**wandb sweep demo**](./03，kerasmodel_tuning_demo.ipynb)   |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/torchkeras-loves-wandb-sweep"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
+|③wandb自动化调参🔥🔥|[**wandb sweep demo**](./03，kerasmodel_tuning_demo.ipynb)   |  <br><div></a><a href="https://www.kaggle.com/lyhue1991/kerastorch-loves-wandb-sweep"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
 |④tensorboard可视化| [**tensorboard example**](./04，kerasmodel_tensorboard_demo.ipynb)   |  |
-|⑤ddp/tpu训练范例| [**ddp tpu examples**](https://www.kaggle.com/code/lyhue1991/torchkeras-ddp-tpu-examples)   |<br><div></a><a href="https://www.kaggle.com/lyhue1991/torchkeras-ddp-tpu-examples"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
+|⑤ddp/tpu训练范例| [**ddp tpu examples**](https://www.kaggle.com/code/lyhue1991/kerastorch-ddp-tpu-examples)   |<br><div></a><a href="https://www.kaggle.com/lyhue1991/kerastorch-ddp-tpu-examples"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a></div><br>  |
 
 ```python
 
@@ -177,9 +177,9 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 
 这时候炼丹师可能会倾向于使用最纯粹的pytorch编写自己的训练循环。
 
-实际上，torchkeras提供了极致的灵活性来让炼丹师掌控训练过程的每个细节。
+实际上，kerastorch提供了极致的灵活性来让炼丹师掌控训练过程的每个细节。
 
-从这个意义上说，torchkeras更像是一个训练代码模版。
+从这个意义上说，kerastorch更像是一个训练代码模版。
 
 这个模版由低到高由StepRunner，EpochRunner 和 KerasModel 三个类组成。
 
@@ -192,7 +192,7 @@ torchkeras 支持以下这些功能特性，稳定支持这些功能的起始版
 ```python
 
 import torch.nn.functional as F 
-from torchkeras import KerasModel
+from kerastorch import KerasModel
 from accelerate import Accelerator
 
 #我们覆盖KerasModel的StepRunner以实现自定义训练逻辑。
@@ -254,7 +254,7 @@ KerasModel.StepRunner = StepRunner
 
 同理，用户也可以修改并覆盖EpochRunner来实现自己的特定逻辑，但我一般很少遇到有这样需求的场景。
 
-examples目录下的范例库包括了使用torchkeras对一些非常常用的库中的模型进行训练的例子。
+examples目录下的范例库包括了使用kerastorch对一些非常常用的库中的模型进行训练的例子。
 
 例如：
 
@@ -309,9 +309,9 @@ examples目录下的范例库包括了使用torchkeras对一些非常常用的�
 
 **如果本项目对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
 
-如果在torchkeras的使用中遇到问题，可以在项目中提交issue。
+如果在kerastorch的使用中遇到问题，可以在项目中提交issue。
 
-如果想要获得更快的反馈或者与其他torchkeras用户小伙伴进行交流，
+如果想要获得更快的反馈或者与其他kerastorch用户小伙伴进行交流，
 
 可以在公众号算法美食屋后台回复关键字：**加群**。
 
