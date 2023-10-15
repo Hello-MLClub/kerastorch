@@ -298,21 +298,3 @@ examples目录下的范例库包括了使用kerastorch对一些非常常用的�
 |LLM微调——BaiChuan13B_NER 🔥🔥🔥| transformers |  [BaiChuan13B_NER](./examples/BaiChuan13B_NER——transformers.ipynb) |
 |LLM微调——BaiChuan13B_MultiRounds 🔥| transformers |  [BaiChuan13B_MultiRounds](./examples/BaiChuan13B_MultiRounds——transformers.ipynb) |
 |LLM微调——Qwen7B_MultiRounds 🔥🔥🔥| transformers |  [Qwen7B_MultiRounds](./examples/Qwen7B_MultiRounds——transformers.ipynb) |
-
-
-```python
-
-```
-
-## 7，鼓励和联系作者 🎈🎈
-
-
-**如果本项目对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
-
-如果在kerastorch的使用中遇到问题，可以在项目中提交issue。
-
-如果想要获得更快的反馈或者与其他kerastorch用户小伙伴进行交流，
-
-可以在公众号算法美食屋后台回复关键字：**加群**。
-
-![](https://tva1.sinaimg.cn/large/e6c9d24egy1h41m2zugguj20k00b9q46.jpg)
